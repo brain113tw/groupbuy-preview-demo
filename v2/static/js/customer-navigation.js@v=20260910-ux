@@ -1,0 +1,20 @@
+(function () {
+    'use strict';
+    var nav = document.getElementById('mobile-nav');
+    if (!nav) { return; }
+    var page = location.pathname.split('/').pop(), query = new URLSearchParams(location.search);
+    var active = /^(index.php)?$/.test(page) ? 'home' : /^flow/.test(page) ? 'cart' : /^search/.test(page) ? 'search' : /^category|^goods|^catalog|^groupbuy/.test(page) ? 'service' : page === 'user.php' && /^order_/.test(query.get('act') || '') ? 'orders' : /^user.php$/.test(page) ? 'member' : '';
+    var link = nav.querySelector('[data-nav-page="' + active + '"]');
+    if (link) { link.setAttribute('aria-current', 'page'); }
+    function size() {
+        document.body.style.setProperty('--customer-nav-height', nav.getBoundingClientRect().height + 'px');
+        var bar = document.querySelector('.co-sticky-bar') || document.getElementById('wardrobe-actions');
+        document.body.style.setProperty('--customer-action-height', (bar ? bar.getBoundingClientRect().height : 0) + 'px');
+    }
+    if (typeof ResizeObserver === 'function') {
+        var observer = new ResizeObserver(size); observer.observe(nav);
+        var bar = document.querySelector('.co-sticky-bar') || document.getElementById('wardrobe-actions');
+        if (bar) { observer.observe(bar); }
+    }
+    window.addEventListener('resize', size); size();
+}());

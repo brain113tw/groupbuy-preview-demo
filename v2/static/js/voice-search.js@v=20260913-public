@@ -1,0 +1,124 @@
+ 
+(function () {
+    'use strict';
+    function ready() {
+        var button = document.getElementById('voice-search-button');
+        var input = document.querySelector('#search input[name="keywords"]');
+        if (!button || !input) return;
+        var panel = document.getElementById('voice-search-panel');
+        var status = document.getElementById('voice-search-status');
+        var start = document.getElementById('voice-search-start');
+        var choices = document.getElementById('voice-search-choices');
+        var Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var active = null, timer = null, generation = 0;
+         
+        var items = [
+            ['羽絨外套', /羽絨(?:外套|衣|服)/g], ['羽絨被', /羽絨被/g],
+            ['蠶絲被', /[蠶蚕]絲被/g], ['羊毛被', /羊毛被/g],
+            ['運動鞋', /運動鞋|球鞋/g], ['西裝外套', /西裝外套/g], ['西裝褲', /西裝褲/g],
+            ['汽座', /(?:兒童|嬰兒)?(?:汽車)?安全座椅|汽座/g], ['推車', /(?:嬰兒|嬰幼兒)?推車/g],
+            ['床單', /床單/g], ['被套', /被套/g], ['枕頭', /枕頭/g], ['棉被', /棉被/g],
+            ['外套', /外套/g], ['毛衣', /毛衣/g], ['襯衫', /襯衫/g], ['牛仔褲', /牛仔褲/g],
+            ['西裝', /西裝/g], ['皮鞋', /皮鞋/g], ['布鞋', /布鞋/g], ['窗簾', /窗簾/g],
+            ['地毯', /地毯/g], ['包包', /包包|手提包/g], ['娃娃', /娃娃|玩偶/g]
+        ];
+        function keywords(text) {
+            var rest = text, found = [];
+            items.forEach(function (item) {
+                rest = rest.replace(item[1], function () {
+                    if (found.indexOf(item[0]) === -1) found.push(item[0]);
+                    return ' ';
+                });
+            });
+            if (found.length) return found;
+            var cleaned = text.replace(/^[\s，。！？、,.!?]*(?:你好|您好)?\s*(?:請問|請幫我|幫我|我想要|我要|我想|我需要)?\s*(?:查詢|搜尋|送洗|清洗|洗)?\s*/, '')
+                .replace(/[，。！？,.!?]+$/g, '').trim();
+            return cleaned ? [cleaned.slice(0, 60)] : [];
+        }
+        function stop() {
+            generation++;
+            clearTimeout(timer);
+            var previous = active;
+            active = null;
+            if (previous) { try { previous.abort(); } catch (e) {} }
+            start.textContent = '開始說話';
+            start.setAttribute('aria-pressed', 'false');
+        }
+        function close(focusButton) {
+            stop(); panel.hidden = true; button.setAttribute('aria-expanded', 'false');
+            if (focusButton) button.focus();
+        }
+        function search(word) {
+            close(false);
+            input.value = word;
+            input.focus();
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        function begin() {
+            if (active) { stop(); status.textContent = '已停止。您可以再試一次，或改用文字輸入。'; return; }
+            stop(); choices.textContent = '';
+            var token = generation, received = false;
+            try {
+                var recognition = new Recognition();
+                active = recognition;
+                recognition.lang = 'zh-TW'; recognition.continuous = false;
+                recognition.interimResults = false; recognition.maxAlternatives = 1;
+                recognition.onresult = function (event) {
+                    if (token !== generation || !active) return;
+                    received = true;
+                    var transcript = String(event.results[0][0].transcript || '').slice(0, 200);
+                    var words = keywords(transcript);
+                    stop();
+                    if (words.length === 1) { search(words[0]); return; }
+                    status.textContent = words.length ? '您提到幾個品項，請選擇要先查詢的項目：' : '沒有聽清楚品項，請再試一次。';
+                    words.forEach(function (word) {
+                        var choice = document.createElement('button');
+                        choice.type = 'button'; choice.textContent = word;
+                        choice.addEventListener('click', function () { search(word); });
+                        choices.appendChild(choice);
+                    });
+                    if (choices.firstChild) choices.firstChild.focus();
+                };
+                recognition.onerror = function (event) {
+                    if (token !== generation) return;
+                    stop();
+                    status.textContent = event.error === 'not-allowed' || event.error === 'service-not-allowed'
+                        ? '無法使用麥克風。請允許瀏覽器使用麥克風，或改用文字輸入。'
+                        : '暫時無法辨識，請再試一次，或使用手機鍵盤上的麥克風輸入。';
+                };
+                recognition.onend = function () {
+                    if (token !== generation) return;
+                    stop();
+                    if (!received) status.textContent = '沒有收到語音，請再試一次，或改用文字輸入。';
+                };
+                status.textContent = '正在聆聽…請說一個送洗品項。';
+                start.textContent = '停止聆聽'; start.setAttribute('aria-pressed', 'true');
+                recognition.start();
+                timer = setTimeout(function () {
+                    if (token !== generation) return;
+                    stop(); status.textContent = '聆聽已結束，請再試一次，或改用文字輸入。';
+                }, 15000);
+            } catch (e) {
+                stop(); status.textContent = '目前瀏覽器無法啟用語音，請改用文字或手機鍵盤的麥克風。';
+            }
+        }
+        button.hidden = false;
+        document.getElementById('search_bar').classList.add('has-voice-search');
+        button.addEventListener('click', function () {
+            if (!panel.hidden) { close(true); return; }
+            panel.hidden = false; button.setAttribute('aria-expanded', 'true'); choices.textContent = '';
+            start.hidden = !Recognition;
+            status.textContent = Recognition ? '例如：我想洗羽絨被。按「開始說話」啟用麥克風。'
+                : '此瀏覽器未提供語音搜尋，您仍可使用手機鍵盤上的麥克風輸入，或改用 Safari／Chrome。';
+            (Recognition ? start : document.getElementById('voice-search-type')).focus();
+        });
+        start.addEventListener('click', begin);
+        document.getElementById('voice-search-close').addEventListener('click', function () { close(true); });
+        document.getElementById('voice-search-type').addEventListener('click', function () { close(false); input.focus(); });
+        document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !panel.hidden) close(true); });
+        document.addEventListener('click', function (event) { if (!panel.hidden && !panel.contains(event.target) && !button.contains(event.target)) close(false); });
+        document.addEventListener('visibilitychange', function () { if (document.hidden) close(false); });
+        window.addEventListener('pagehide', function () { close(false); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
+})();

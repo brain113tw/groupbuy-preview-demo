@@ -1,0 +1,464 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: var(--en-ground);
+}
+
+
+
+
+
+
+
+body#page_goods,
+body#page_article,
+body#page_article_cat {
+    color: var(--en-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", sans-serif;
+}
+
+body#page_goods #main,
+body#page_article #main,
+body#page_article_cat #main {
+    background-color: var(--en-ground);
+}
+
+body#page_goods #main .wrapper,
+body#page_article #main .wrapper,
+body#page_article_cat #main .wrapper {
+    background-color: transparent;
+    color: var(--en-text);
+    padding-bottom: 40px;
+}
+
+
+
+body#page_goods .box .bd > p,
+body#page_article .box .bd > p,
+body#page_article_cat .box .bd > p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--en-text-mid);
+}
+
+ 
+body#page_goods #main .box .hd,
+body#page_article #main .box .hd,
+body#page_article_cat #main .box .hd {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid var(--en-line-soft);
+    border-radius: var(--en-radius) var(--en-radius) 0 0;
+}
+
+body#page_goods #main .box .hd h3,
+body#page_article #main .box .hd h3,
+body#page_article_cat #main .box .hd h2,
+body#page_article_cat #main .box .hd h3 {
+    color: var(--en-text);
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+ 
+body#page_article_cat .catalog-page-title {
+    font-size: clamp(26px, 2.6vw, 34px);
+    line-height: 1.45;
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+
+
+
+
+
+
+
+body#page_goods .product_details .pd-name {
+    font-size: clamp(24px, 2.3vw, 30px);
+    line-height: 1.45;
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+body#page_goods .product_details .intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--en-text-mid);
+}
+
+body#page_goods .product_details .price_and_no .price strong {
+    font-weight: 700;
+    letter-spacing: .01em;
+}
+
+
+
+body#page_goods .product_details .submit .button.bright_button,
+body#page_goods .product_details .submit a.button.bright_button {
+    background-image: none;
+    background-color: var(--en-brand);
+    border: 1px solid var(--en-brand);
+    border-radius: 8px;
+    color: #fff;
+    text-shadow: none;
+    min-height: 48px;
+    font-size: 16px;
+}
+
+ 
+body#page_goods .product_details .properties dd.radio label,
+body#page_goods .product_details .properties dd.checkbox label {
+    border-radius: 8px;
+}
+
+
+
+
+
+body#page_goods #goods_info .tab_wrapper .tabs a {
+    border-radius: 999px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+}
+
+body#page_goods .goods_properties .property_list dt {
+    color: var(--en-text);
+    font-weight: 600;
+}
+
+body#page_goods .goods_properties .property_list dd {
+    color: var(--en-text-mid);
+}
+
+ 
+body#page_goods .mobile-float-buy a {
+    background-color: var(--en-brand);
+}
+
+body#page_goods .mobile-float-buy .mini-price {
+    color: #fff;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+body#page_article .article h1 {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, var(--en-brand) 0%, var(--en-brand-dk) 100%);
+    color: #fff;
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height: 1.45;
+    letter-spacing: .02em;
+    text-shadow: none;
+    border: 0;
+    border-radius: var(--en-radius) var(--en-radius) 0 0;
+}
+
+body#page_article .box .bd .article_content {
+    border-radius: 0 0 var(--en-radius) var(--en-radius);
+    box-shadow: none;
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--en-text-mid);
+}
+
+ 
+body#page_article .box .bd .article_content > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ 
+body#page_article .box .bd .article_content > p,
+body#page_article .box .bd .article_content > ul,
+body#page_article .box .bd .article_content > ol,
+body#page_article .box .bd .article_content > blockquote,
+body#page_article .box .bd .article_content > h2,
+body#page_article .box .bd .article_content > h3,
+body#page_article .box .bd .article_content > h4 {
+    max-width: 40em;
+}
+
+body#page_article .box .bd .article_content h2,
+body#page_article .box .bd .article_content h3,
+body#page_article .box .bd .article_content h4 {
+    color: var(--en-text);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+ 
+body#page_article .article-nav {
+    gap: 12px;
+}
+
+body#page_article .article-nav .nav-item {
+    font-size: 15px;
+    color: var(--en-text-mid);
+}
+
+body#page_article .article-nav .nav-item a {
+    color: var(--en-text);
+}
+
+body#page_article .article-nav .nav-item .label {
+    color: var(--en-text-dim);
+}
+
+
+
+body#page_article .article_font_toolbar .font_size_btn {
+    border-radius: 999px;
+    border: 1px solid var(--en-line);
+    background: transparent;
+    color: var(--en-text-mid);
+    min-height: 36px;
+    padding: 4px 14px;
+}
+
+body#page_article .article_font_toolbar .font_toolbar_label {
+    color: var(--en-text-dim);
+}
+
+
+
+
+
+
+body#page_article_cat .article-card-item,
+body#page_article_cat .case-card {
+    background: var(--en-surface);
+    border: 1px solid var(--en-line);
+    border-radius: var(--en-radius);
+    overflow: hidden;
+}
+
+body#page_article_cat .article-title a,
+body#page_article_cat .case-title a {
+    color: var(--en-text);
+    font-weight: 600;
+}
+
+body#page_article_cat .article-brief,
+body#page_article_cat .article-brief a,
+body#page_article_cat .case-brief {
+    color: var(--en-text-mid);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+body#page_article_cat .article-meta,
+body#page_article_cat .case-meta {
+    color: var(--en-text-dim);
+    font-size: 13px;
+}
+
+body#page_article_cat .faq-item {
+    border-bottom: 1px solid var(--en-line);
+    padding: 18px 0;
+}
+
+body#page_article_cat .faq-q {
+    color: var(--en-text);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+body#page_article_cat .faq-a {
+    color: var(--en-text-mid);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+body#page_article_cat .article-search-form input[type="text"] {
+    border: 1px solid var(--en-line);
+    border-radius: 8px;
+    min-height: 42px;
+    padding: 0 12px;
+}
+
+body#page_article_cat .article-search-form input[type="submit"] {
+    background-image: none;
+    background-color: var(--en-brand);
+    border: 1px solid var(--en-brand);
+    border-radius: 8px;
+    color: #fff;
+    min-height: 42px;
+    padding: 0 18px;
+    text-shadow: none;
+}
+
+
+/* ---------------------------------------------------------------
+   6. 頁尾最底下一列（全站，含首頁）
+   ---------------------------------------------------------------
+   兩個問題：
+   一是 #copyright 寫死 float:left + width:300px、#bottom_nav 是
+   float:right，而 .footer-nap 沒有浮動 —— 店名地址那一塊會鑽到
+   兩欄中間，寬度不夠時三者疊在一起。
+   二是右下角有固定定位的 LINE／TOP 浮動按鈕，靠右那一塊在窄螢幕
+   會被蓋住。
+
+   三塊各佔一列、置中，三種寬度下都不會疊到，
+   也跟本來就置中的 NAP 一致。 */
+#footer .footer-bottom .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+#footer .footer-bottom #bottom_nav {
+    order: 1;
+    float: none;
+    margin: 0;
+}
+
+#footer .footer-bottom #copyright {
+    order: 2;
+    float: none;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+}
+
+#footer .footer-bottom .footer-nap {
+    order: 3;
+    width: 100%;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+#footer {
+    background: #103f49;
+}
+
+#footer .footer-main,
+#footer .footer-bottom {
+    background: transparent;
+}
+
+#footer a {
+    color: #d6e7ea;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+#footer #links > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+#footer #links > ul > li {
+    flex: 1 1 160px;
+}
+
+#footer .footer-bottom,
+#footer #copyright,
+#footer #bottom_nav,
+#footer #bottom_nav a {
+    color: #c3d9dd;
+}
+
+#footer #copyright span {
+    color: #9dbcc2;
+}
+
+
+
+
+
+
+@media (max-width: 1000px) {
+    body#page_article .box .bd .article_content > p,
+    body#page_article .box .bd .article_content > ul,
+    body#page_article .box .bd .article_content > ol,
+    body#page_article .box .bd .article_content > blockquote,
+    body#page_article .box .bd .article_content > h2,
+    body#page_article .box .bd .article_content > h3,
+    body#page_article .box .bd .article_content > h4 {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    body#page_goods .product_details .pd-name {
+        font-size: 22px;
+    }
+
+    body#page_article .box .bd .article_content {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    body#page_article .article-nav .nav-item {
+        width: 100%;
+        text-align: left;
+    }
+
+    body#page_article .article-nav .nav-item.next {
+        text-align: left;
+    }
+}

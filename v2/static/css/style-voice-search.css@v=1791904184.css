@@ -1,0 +1,17 @@
+ 
+#header #search_bar.has-voice-search {height:auto;min-height:46px;padding:0;min-width:0;}
+#header #search_bar.has-voice-search #search {position:relative;margin:0;width:100%;}
+#header #search_bar.has-voice-search input[type=text] {box-sizing:border-box;width:100%;height:46px;min-height:46px;padding:0 96px 0 14px;font-size:17px;border-radius:24px;}
+#header #search_bar.has-voice-search input[type=submit] {top:1px;right:46px;transform:none;width:44px;height:44px;margin:0;opacity:1;border-radius:50%;background:#147486 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Ccircle cx='10' cy='10' r='6'/%3E%3Cpath d='m15 15 6 6'/%3E%3C/svg%3E") no-repeat center/20px;}
+#header #search_bar #voice-search-button {position:absolute;right:2px;top:1px;width:44px;height:44px;min-width:44px;padding:10px;margin:0;border:0;border-radius:50%;background:#eaf3f4;color:#147486;box-shadow:none;cursor:pointer;}
+#voice-search-button svg {fill:none;stroke:currentColor;stroke-width:1.8;display:block;}
+#header #search_bar [hidden] {display:none;}
+#header #voice-search-panel {position:absolute;z-index:1100;top:calc(100% + 10px);right:0;width:360px;max-width:calc(100vw - 32px);box-sizing:border-box;background:#ffffff;border:1px solid #d3e0e3;border-radius:18px;padding:24px 18px 18px;box-shadow:0 14px 40px #103f4926;color:#103f49;text-align:left;}
+#header #voice-search-panel strong {display:block;padding-right:28px;font-size:20px;line-height:1.5;}
+#header #voice-search-panel p {font-size:17px;line-height:1.65;margin:12px 0;white-space:normal;}
+#header #voice-search-panel .voice-search-note {font-size:15px;color:#46606a;}
+#header #voice-search-panel button {position:static;min-height:44px;padding:10px 14px;margin:4px 4px 0 0;border:1px solid #aecfd5;border-radius:12px;background:#fff;color:#147486;font-size:16px;line-height:1.5;text-indent:0;cursor:pointer;box-shadow:none;}
+#header #voice-search-panel #voice-search-start {background:#147486;color:#fff;}
+#header #voice-search-panel #voice-search-close {position:absolute;top:4px;right:4px;border:0;background:transparent;width:44px;padding:4px;font-size:26px;}
+#header #search_bar button:focus-visible {outline:3px solid #b78a46;outline-offset:2px;}
+@media(max-width:767px){#header #voice-search-panel {right:50%;transform:translateX(50%);width:360px;}#header #search_bar.has-voice-search {max-width:100%;}}

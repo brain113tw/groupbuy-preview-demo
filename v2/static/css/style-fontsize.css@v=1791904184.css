@@ -1,0 +1,205 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body#page_article #article_content,
+body#page_article #article_content p,
+body#page_article #article_content li,
+body#page_article #article_content dd,
+body#page_article #article_content dt,
+body#page_article #article_content td,
+body#page_article #article_content span,
+body#page_article #article_content blockquote {
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+body#page_article #article_content h2,
+body#page_article #article_content h3 {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+body#page_article #article_content h4,
+body#page_article #article_content h5 {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+body#page_goods #goods_info .product_description,
+body#page_goods #goods_info .product_description p,
+body#page_goods #goods_info .product_description li,
+body#page_goods #goods_info .product_description td,
+body#page_goods #goods_info .product_description span {
+    font-size: 21px;
+    line-height: 1.85;
+}
+
+body#page_goods #goods_info .product_description h1 { font-size: 26px; line-height: 1.4; }
+body#page_goods #goods_info .product_description h2 { font-size: 24px; line-height: 1.45; }
+
+body#page_goods #goods_info .product_description h3,
+body#page_goods #goods_info .product_description h4,
+body#page_goods #goods_info .product_description h5 {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+body#page_goods .goods_care_notice .care-notice-body,
+body#page_goods .goods_care_notice .care-notice-body p,
+body#page_goods .goods_care_notice .care-notice-body li {
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+body#page_goods .goods_care_notice .care-notice-body h4 {
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+body#page_goods .goods_care_notice .care-notice-title {
+    font-size: 21px;
+}
+
+
+
+
+
+
+
+body#page_category .cat-intro,
+body#page_category .cat-intro p,
+body#page_category .cat-intro li {
+    font-size: 21px;
+    line-height: 1.9;
+}
+
+
+
+
+
+
+body .shop_notice,
+body .shop_notice p,
+body .shop_notice a {
+    font-size: 21px !important;
+    line-height: 1.7 !important;
+}
+
+
+
+
+
+
+
+body .product_list .name a,
+body .goods_list .name a,
+body .goodsItem .name a,
+body .product-name,
+body .product-name a,
+body li.product-card .product-name,
+body li.product-card .product-name a {
+    font-size: 21px !important;
+    line-height: 1.5 !important;
+}
+
+body#page_goods .product_details h1 {
+    font-size: 26px;
+    line-height: 1.4;
+}
+
+
+
+
+
+
+body .pricelist-note,
+body .pricelist-note p,
+body .pricelist-note li {
+    font-size: 21px !important;
+    line-height: 1.8 !important;
+}
+
+
+
+
+
+
+
+body#page_article #article_content.font-large,
+body#page_article #article_content.font-large p,
+body#page_article #article_content.font-large span,
+body#page_article #article_content.font-large li,
+body#page_article #article_content.font-large div,
+body#page_article #article_content.font-large td {
+    font-size: 24px;
+    line-height: 1.9;
+}
+
+body#page_article #article_content.font-xlarge,
+body#page_article #article_content.font-xlarge p,
+body#page_article #article_content.font-xlarge span,
+body#page_article #article_content.font-xlarge li,
+body#page_article #article_content.font-xlarge div,
+body#page_article #article_content.font-xlarge td {
+    font-size: 28px;
+    line-height: 2;
+}
+
+body#page_article .article_font_toolbar .font_size_btn.current {
+    background: #147486;
+    color: #fff;
+    border-color: #147486;
+}
+
